@@ -33,7 +33,7 @@ public class AutenticacaoController {
         try {
             Authentication authentication = authenticationManager.authenticate(dadosLogin);
             String token = tokenService.gerarToken(authentication);
-            return ResponseEntity.status(200).body(new TokenDto(token,"Oauth2.0"));
+            return ResponseEntity.status(200).body(new TokenDto(token,"Bearer"));
         } catch (AuthenticationException e){
             return ResponseEntity.badRequest().build();
         }
